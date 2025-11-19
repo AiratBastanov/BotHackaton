@@ -1,0 +1,266 @@
+2025-11-19 16:02:56 - root - INFO - Логирование настроено успешно
+2025-11-19 16:12:49 - root - INFO - Логирование настроено успешно
+2025-11-19 16:12:50 - CodeQueenBot - INFO - Обработчики команд зарегистрированы
+2025-11-19 16:12:50 - CodeQueenBot - INFO - CodeQueenBot инициализирован успешно
+2025-11-19 16:12:50 - CodeQueenBot - WARNING - ⚠️ Проблемы с соединением к Hugging Face API
+2025-11-19 16:12:51 - CodeQueenBot - INFO - 🤖 Бот @Hrtdew_bot запущен успешно
+2025-11-19 16:12:51 - CodeQueenBot - INFO - Запуск бота в режиме polling...
+2025-11-19 16:12:51 - CodeQueenBot - INFO - Webhook очищен, запускаем polling...
+2025-11-19 16:12:51 - CodeQueenBot - ERROR - Ошибка при запуске polling: This event loop is already running
+2025-11-19 16:12:51 - CodeQueenBot - ERROR - Критическая ошибка: This event loop is already running
+Traceback (most recent call last):
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 1006, in __run
+    raise exc
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 995, in __run
+    loop.run_until_complete(self.initialize())
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 667, in run_until_complete
+    self._check_running()
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 626, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\bot.py", line 389, in main
+    await bot.run_polling()
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\bot.py", line 344, in run_polling
+    await self.application.run_polling(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 818, in run_polling
+    return self.__run(
+           ^^^^^^^^^^^
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 1017, in __run
+    loop.run_until_complete(self.shutdown())
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 667, in run_until_complete
+    self._check_running()
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 626, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+2025-11-19 16:12:51 - CodeQueenBot - INFO - Завершение работы бота...
+2025-11-19 16:12:51 - CodeQueenBot - INFO - Webhook очищен
+2025-11-19 16:20:18 - root - INFO - Логирование настроено успешно
+2025-11-19 16:20:19 - CodeQueenBot - INFO - Обработчики команд зарегистрированы
+2025-11-19 16:20:19 - CodeQueenBot - INFO - CodeQueenBot инициализирован успешно
+2025-11-19 16:20:19 - CodeQueenBot - WARNING - ⚠️ Проблемы с соединением к Hugging Face API
+2025-11-19 16:20:19 - CodeQueenBot - ERROR - Критическая ошибка: 'coroutine' object has no attribute 'username'
+Traceback (most recent call last):
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\bot.py", line 383, in main
+    bot.logger.info(f"🤖 Бот @{bot_info.username} запущен успешно")
+                               ^^^^^^^^^^^^^^^^^
+AttributeError: 'coroutine' object has no attribute 'username'
+2025-11-19 16:30:21 - root - INFO - Логирование настроено успешно
+2025-11-19 16:30:22 - CodeQueenBot - INFO - Обработчики команд зарегистрированы
+2025-11-19 16:30:22 - CodeQueenBot - INFO - CodeQueenBot инициализирован успешно
+2025-11-19 16:30:22 - CodeQueenBot - WARNING - ⚠️ Проблемы с соединением к Hugging Face API
+2025-11-19 16:30:22 - CodeQueenBot - INFO - 🤖 Бот @Hrtdew_bot запущен успешно
+2025-11-19 16:30:22 - CodeQueenBot - INFO - Запуск бота в режиме polling...
+2025-11-19 16:30:22 - CodeQueenBot - INFO - Webhook очищен, запускаем polling...
+2025-11-19 16:30:22 - CodeQueenBot - ERROR - Ошибка при запуске polling: Cannot close a running event loop
+2025-11-19 16:30:22 - CodeQueenBot - ERROR - Критическая ошибка: Cannot close a running event loop
+Traceback (most recent call last):
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 1006, in __run
+    raise exc
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 995, in __run
+    loop.run_until_complete(self.initialize())
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 667, in run_until_complete
+    self._check_running()
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 626, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 1017, in __run
+    loop.run_until_complete(self.shutdown())
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 667, in run_until_complete
+    self._check_running()
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 626, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\bot.py", line 386, in main_async
+    await bot.run_polling()
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\bot.py", line 343, in run_polling
+    await self.application.run_polling(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 818, in run_polling
+    return self.__run(
+           ^^^^^^^^^^^
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 1022, in __run
+    loop.close()
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 687, in close
+    raise RuntimeError("Cannot close a running event loop")
+RuntimeError: Cannot close a running event loop
+2025-11-19 16:30:22 - CodeQueenBot - INFO - Завершение работы бота...
+2025-11-19 16:30:22 - CodeQueenBot - INFO - Webhook очищен
+2025-11-19 16:30:22 - CodeQueenBot - INFO - Бот завершил работу
+2025-11-19 16:36:10 - root - INFO - Логирование настроено успешно
+2025-11-19 16:36:11 - CodeQueenBot - INFO - Обработчики команд зарегистрированы
+2025-11-19 16:36:11 - CodeQueenBot - INFO - CodeQueenBot инициализирован успешно
+2025-11-19 16:36:11 - CodeQueenBot - WARNING - ⚠️ Проблемы с соединением к Hugging Face API
+2025-11-19 16:36:11 - CodeQueenBot - INFO - 🤖 Бот @Hrtdew_bot запущен успешно
+2025-11-19 16:36:11 - CodeQueenBot - INFO - Запуск бота в режиме polling...
+2025-11-19 16:36:11 - CodeQueenBot - INFO - Webhook очищен, запускаем polling...
+2025-11-19 16:36:12 - CodeQueenBot - ERROR - Ошибка при запуске polling: Cannot close a running event loop
+2025-11-19 16:36:12 - CodeQueenBot - ERROR - Критическая ошибка: Cannot close a running event loop
+Traceback (most recent call last):
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 1006, in __run
+    raise exc
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 995, in __run
+    loop.run_until_complete(self.initialize())
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 667, in run_until_complete
+    self._check_running()
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 626, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 1017, in __run
+    loop.run_until_complete(self.shutdown())
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 667, in run_until_complete
+    self._check_running()
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 626, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\bot.py", line 386, in main_async
+    await bot.run_polling()
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\bot.py", line 343, in run_polling
+    await self.application.run_polling(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 818, in run_polling
+    return self.__run(
+           ^^^^^^^^^^^
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 1022, in __run
+    loop.close()
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 687, in close
+    raise RuntimeError("Cannot close a running event loop")
+RuntimeError: Cannot close a running event loop
+2025-11-19 16:36:12 - CodeQueenBot - INFO - Завершение работы бота...
+2025-11-19 16:36:12 - CodeQueenBot - INFO - Webhook очищен
+2025-11-19 16:36:12 - CodeQueenBot - INFO - Бот завершил работу
+2025-11-19 16:37:23 - root - INFO - Логирование настроено успешно
+2025-11-19 16:37:23 - CodeQueenBot - INFO - Обработчики команд зарегистрированы
+2025-11-19 16:37:23 - CodeQueenBot - INFO - CodeQueenBot инициализирован успешно
+2025-11-19 16:37:24 - CodeQueenBot - WARNING - ⚠️ Проблемы с соединением к Hugging Face API
+2025-11-19 16:37:24 - CodeQueenBot - INFO - 🤖 Бот @Hrtdew_bot запущен успешно
+2025-11-19 16:37:24 - CodeQueenBot - INFO - Запуск бота в режиме polling...
+2025-11-19 16:37:24 - CodeQueenBot - INFO - Webhook очищен, запускаем polling...
+2025-11-19 16:37:24 - CodeQueenBot - ERROR - Ошибка при запуске polling: Cannot close a running event loop
+2025-11-19 16:37:24 - CodeQueenBot - ERROR - Критическая ошибка: Cannot close a running event loop
+Traceback (most recent call last):
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 1006, in __run
+    raise exc
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 995, in __run
+    loop.run_until_complete(self.initialize())
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 667, in run_until_complete
+    self._check_running()
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 626, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 1017, in __run
+    loop.run_until_complete(self.shutdown())
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 667, in run_until_complete
+    self._check_running()
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 626, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\bot.py", line 386, in main_async
+    await bot.run_polling()
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\bot.py", line 343, in run_polling
+    await self.application.run_polling(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 818, in run_polling
+    return self.__run(
+           ^^^^^^^^^^^
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 1022, in __run
+    loop.close()
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\proactor_events.py", line 687, in close
+    raise RuntimeError("Cannot close a running event loop")
+RuntimeError: Cannot close a running event loop
+2025-11-19 16:37:24 - CodeQueenBot - INFO - Завершение работы бота...
+2025-11-19 16:37:24 - CodeQueenBot - INFO - Webhook очищен
+2025-11-19 16:37:24 - CodeQueenBot - INFO - Бот завершил работу
+2025-11-19 16:39:27 - root - INFO - Логирование настроено успешно
+2025-11-19 16:39:28 - CodeQueenBot - INFO - Обработчики команд зарегистрированы
+2025-11-19 16:39:28 - CodeQueenBot - INFO - CodeQueenBot инициализирован успешно
+2025-11-19 16:39:28 - CodeQueenBot - WARNING - ⚠️ Проблемы с соединением к Hugging Face API
+2025-11-19 16:39:28 - CodeQueenBot - INFO - 🤖 Бот @Hrtdew_bot запущен успешно
+2025-11-19 16:39:28 - CodeQueenBot - ERROR - Критическая ошибка: This Application was not initialized via `Application.initialize`!
+Traceback (most recent call last):
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\run_bot.py", line 27, in simple_main
+    await bot.application.start()
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 600, in start
+    self._check_initialized()
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 454, in _check_initialized
+    raise RuntimeError(
+RuntimeError: This Application was not initialized via `Application.initialize`!
+2025-11-19 16:42:51 - root - INFO - Логирование настроено успешно
+2025-11-19 16:42:51 - CodeQueenBot - INFO - Обработчики команд зарегистрированы
+2025-11-19 16:42:51 - CodeQueenBot - INFO - CodeQueenBot инициализирован успешно
+2025-11-19 16:42:52 - CodeQueenBot - WARNING - ⚠️ Проблемы с соединением к Hugging Face API
+2025-11-19 16:42:52 - CodeQueenBot - INFO - 🤖 Бот @Hrtdew_bot запущен успешно
+2025-11-19 16:42:52 - CodeQueenBot - ERROR - Критическая ошибка: This event loop is already running
+Traceback (most recent call last):
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 1006, in __run
+    raise exc
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 995, in __run
+    loop.run_until_complete(self.initialize())
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 667, in run_until_complete
+    self._check_running()
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 626, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\run_bot.py", line 27, in simple_main
+    await bot.application.run_polling(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 818, in run_polling
+    return self.__run(
+           ^^^^^^^^^^^
+  File "C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py", line 1017, in __run
+    loop.run_until_complete(self.shutdown())
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 667, in run_until_complete
+    self._check_running()
+  File "C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 626, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+2025-11-19 16:49:05 - root - INFO - Логирование настроено успешно
+2025-11-19 16:49:06 - CodeQueenBot - INFO - Обработчики команд зарегистрированы
+2025-11-19 16:49:06 - CodeQueenBot - INFO - CodeQueenBot инициализирован успешно
+2025-11-19 16:49:07 - CodeQueenBot - WARNING - ⚠️ Проблемы с соединением к Hugging Face API
+2025-11-19 16:49:07 - CodeQueenBot - INFO - 🤖 Бот @Hrtdew_bot запущен успешно
+2025-11-19 16:49:07 - telegram.ext.Application - WARNING - Fetching updates got a asyncio.CancelledError. Ignoring as this task may onlybe closed via `Application.stop`.
+2025-11-19 16:55:59 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task cancelling name='Application:8592767430:update_fetcher' coro=<Application._update_fetcher() done, defined at C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py:1145> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:767]>
+2025-11-19 16:56:02 - root - INFO - Логирование настроено успешно
+2025-11-19 16:56:25 - root - INFO - Логирование настроено успешно
+2025-11-19 16:56:25 - CodeQueenBot - INFO - Обработчики команд зарегистрированы
+2025-11-19 16:56:25 - CodeQueenBot - INFO - CodeQueenBot инициализирован успешно
+2025-11-19 16:56:25 - ai_client - ERROR - Ошибка при тесте соединения: Invalid URL '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': No scheme supplied. Perhaps you meant https://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?
+2025-11-19 16:56:25 - CodeQueenBot - WARNING - ⚠️ Проблемы с соединением к Hugging Face API
+2025-11-19 16:56:25 - CodeQueenBot - INFO - 🤖 Бот @Hrtdew_bot запущен успешно
+2025-11-19 16:56:25 - telegram.ext.Application - WARNING - Fetching updates got a asyncio.CancelledError. Ignoring as this task may onlybe closed via `Application.stop`.
+2025-11-19 16:58:08 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task cancelling name='Application:8592767430:update_fetcher' coro=<Application._update_fetcher() done, defined at C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py:1145> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:767]>
