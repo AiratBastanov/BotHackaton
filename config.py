@@ -12,7 +12,7 @@ class Config:
     HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN", "")
     
     # Настройки Hugging Face API (ИСПРАВЛЕНО: было HUGGFACE_API_URL)
-    HUGGINGFACE_API_URL = os.getenv("HUGGFACE_API_URL", "https://api-inference.huggingface.co/models/microsoft/DialoGPT-large")
+    HUGGINGFACE_API_URL = os.getenv("HUGGINGFACE_API_URL", "https://api-inference.huggingface.co/models/microsoft/DialoGPT-large")
     
     # Настройки бота
     BOT_USERNAME = os.getenv("BOT_USERNAME", "Helper_test_bot")
@@ -82,7 +82,7 @@ class Config:
         'empty_message': "🤔 Пожалуйста, напишите что-нибудь для общения.",
         'message_too_long': "📝 Сообщение слишком длинное. Максимум 1000 символов.",
         'api_timeout': "⏰ Сервис AI временно недоступен. Попробуйте через несколько минут.",
-        'maintenance': "🔧 Бот находится на техническом обслуживании. Скво вернусь!"
+        'maintenance': "🔧 Бот находится на техническом обслуживании. Скоро вернусь!"
     }
 
 # Создаем экземпляр конфигурации

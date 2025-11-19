@@ -264,3 +264,43 @@ task: <Task cancelling name='Application:8592767430:update_fetcher' coro=<Applic
 2025-11-19 16:56:25 - telegram.ext.Application - WARNING - Fetching updates got a asyncio.CancelledError. Ignoring as this task may onlybe closed via `Application.stop`.
 2025-11-19 16:58:08 - asyncio - ERROR - Task was destroyed but it is pending!
 task: <Task cancelling name='Application:8592767430:update_fetcher' coro=<Application._update_fetcher() done, defined at C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py:1145> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:767]>
+2025-11-19 17:05:06 - root - INFO - Логирование настроено успешно
+2025-11-19 17:05:07 - CodeQueenBot - INFO - Обработчики команд зарегистрированы
+2025-11-19 17:05:07 - CodeQueenBot - INFO - CodeQueenBot инициализирован успешно
+2025-11-19 17:05:08 - CodeQueenBot - WARNING - ⚠️ Проблемы с соединением к Hugging Face API
+2025-11-19 17:05:08 - CodeQueenBot - INFO - 🤖 Бот @Hrtdew_bot запущен успешно
+2025-11-19 17:05:08 - telegram.ext.Application - WARNING - Fetching updates got a asyncio.CancelledError. Ignoring as this task may onlybe closed via `Application.stop`.
+2025-11-19 17:24:06 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task cancelling name='Application:8592767430:update_fetcher' coro=<Application._update_fetcher() done, defined at C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py:1145> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:767]>
+2025-11-19 17:24:06 - root - INFO - Логирование настроено успешно
+2025-11-19 17:24:08 - CodeQueenBot - INFO - Обработчики команд зарегистрированы
+2025-11-19 17:24:08 - CodeQueenBot - INFO - CodeQueenBot инициализирован успешно
+2025-11-19 17:24:08 - CodeQueenBot - WARNING - ⚠️ Проблемы с соединением к Hugging Face API
+2025-11-19 17:24:09 - CodeQueenBot - INFO - 🤖 Бот @Hrtdew_bot запущен успешно
+2025-11-19 17:24:09 - telegram.ext.Application - WARNING - Fetching updates got a asyncio.CancelledError. Ignoring as this task may onlybe closed via `Application.stop`.
+2025-11-19 17:24:43 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task cancelling name='Application:8592767430:update_fetcher' coro=<Application._update_fetcher() done, defined at C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py:1145> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:767]>
+2025-11-19 17:24:46 - root - INFO - Логирование настроено успешно
+2025-11-19 17:24:47 - CodeQueenBot - INFO - Обработчики команд зарегистрированы
+2025-11-19 17:24:47 - CodeQueenBot - INFO - CodeQueenBot инициализирован успешно
+2025-11-19 17:24:47 - CodeQueenBot - WARNING - ⚠️ Проблемы с соединением к Hugging Face API
+2025-11-19 17:24:48 - CodeQueenBot - INFO - 🤖 Бот @Hrtdew_bot запущен успешно
+2025-11-19 17:24:48 - telegram.ext.Application - WARNING - Fetching updates got a asyncio.CancelledError. Ignoring as this task may onlybe closed via `Application.stop`.
+2025-11-19 17:27:41 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task cancelling name='Application:8592767430:update_fetcher' coro=<Application._update_fetcher() done, defined at C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py:1145> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:767]>
+2025-11-19 17:27:44 - root - INFO - Логирование настроено успешно
+2025-11-19 17:27:44 - CodeQueenBot - INFO - Обработчики команд зарегистрированы
+2025-11-19 17:27:44 - CodeQueenBot - INFO - CodeQueenBot инициализирован успешно
+2025-11-19 17:27:45 - CodeQueenBot - WARNING - ⚠️ Проблемы с соединением к Hugging Face API
+2025-11-19 17:27:45 - CodeQueenBot - INFO - 🤖 Бот @Hrtdew_bot запущен успешно
+2025-11-19 17:27:45 - telegram.ext.Application - WARNING - Fetching updates got a asyncio.CancelledError. Ignoring as this task may onlybe closed via `Application.stop`.
+2025-11-19 17:31:45 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task cancelling name='Application:8592767430:update_fetcher' coro=<Application._update_fetcher() done, defined at C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py:1145> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:767]>
+2025-11-19 17:31:47 - root - INFO - Логирование настроено успешно
+2025-11-19 17:31:49 - CodeQueenBot - INFO - Обработчики команд зарегистрированы
+2025-11-19 17:31:49 - CodeQueenBot - INFO - CodeQueenBot инициализирован успешно
+2025-11-19 17:31:49 - CodeQueenBot - WARNING - ⚠️ Проблемы с соединением к Hugging Face API
+2025-11-19 17:31:50 - CodeQueenBot - INFO - 🤖 Бот @Hrtdew_bot запущен успешно
+2025-11-19 17:31:50 - telegram.ext.Application - WARNING - Fetching updates got a asyncio.CancelledError. Ignoring as this task may onlybe closed via `Application.stop`.
+2025-11-19 17:41:54 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task cancelling name='Application:8592767430:update_fetcher' coro=<Application._update_fetcher() done, defined at C:\Users\BastaPC\Desktop\code_queen_bot\venv\Lib\site-packages\telegram\ext\_application.py:1145> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at C:\Users\BastaPC\AppData\Local\Programs\Python\Python312\Lib\asyncio\tasks.py:767]>

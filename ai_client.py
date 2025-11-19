@@ -1,222 +1,79 @@
-import requests
+import aiohttp
 import logging
-import json
-import time
-from typing import List, Dict, Any, Optional
-from cachetools import TTLCache
-from config import config
+from config import Config
+from typing import Dict, Any
+
 
 class HuggingFaceClient:
-    """Улучшенный клиент для работы с Hugging Face API с кэшированием и повторными попытками"""
-    
+    """Асинхронный AI-клиент для HuggingFace Inference API"""
+
     def __init__(self):
-        # ИСПРАВЛЕНО: новый endpoint
-        self.api_url = config.HUGGINGFACE_API_URL
+        self.logger = logging.getLogger(__name__)
+        self.api_url = Config.HUGGINGFACE_API_URL
+        self.token = Config.HUGGINGFACE_TOKEN
         self.headers = {
-            "Authorization": f"Bearer {config.HUGGINGFACE_TOKEN}",
+            "Authorization": f"Bearer {self.token}",
             "Content-Type": "application/json"
         }
-        self.logger = logging.getLogger(__name__)
-        
-        # Кэш для повторяющихся запросов (TTL 5 минут)
-        self.cache = TTLCache(maxsize=100, ttl=300)
-        
-        # Настройки для генерации текста
-        self.generation_params = {
-            "max_length": 200,
-            "min_length": 20,
-            "temperature": 0.8,
-            "top_p": 0.9,
-            "repetition_penalty": 1.1,
-            "do_sample": True,
-            "return_full_text": False,
-            "num_return_sequences": 1
-        }
-        
-        self.session = requests.Session()
-        self.session.headers.update(self.headers)
-        # Таймаут для запросов
-        self.timeout = config.REQUEST_TIMEOUT
-    
-    def generate_response(self, conversation_history: List[Dict[str, str]]) -> Optional[str]:
-        """
-        Генерирует ответ на основе истории диалога с повторными попытками
-        
-        Args:
-            conversation_history: История диалога в формате [{'role': 'user', 'content': '...'}, ...]
-        
-        Returns:
-            Сгенерированный текст или None в случае ошибки
-        """
-        # Создаем ключ кэша на основе истории
-        cache_key = str(hash(str(conversation_history)))
-        
-        # Проверяем кэш
-        if cache_key in self.cache:
-            self.logger.info("Используем кэшированный ответ")
-            return self.cache[cache_key]
-        
-        for attempt in range(config.MAX_RETRIES):
-            try:
-                # Формируем промпт из истории диалога
-                prompt = self._build_prompt(conversation_history)
-                
-                if not prompt:
-                    return "Привет! Как я могу вам помочь?"
-                
-                payload = {
-                    "inputs": prompt,
-                    "parameters": self.generation_params
-                }
-                
-                self.logger.info(f"Попытка {attempt + 1}: Отправка запроса к Hugging Face API")
-                
-                response = self.session.post(
+
+    async def test_connection(self) -> bool:
+        """Проверка API"""
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.post(
                     self.api_url,
-                    json=payload,
-                    timeout=self.timeout
-                )
-                
-                if response.status_code == 200:
-                    result = response.json()
-                    generated_text = self._extract_generated_text(result)
-                    
-                    if generated_text:
-                        # Очищаем и форматируем ответ
-                        cleaned_text = self._clean_response(generated_text)
-                        self.logger.info(f"Успешный ответ от AI: {cleaned_text[:100]}...")
-                        
-                        # Сохраняем в кэш
-                        self.cache[cache_key] = cleaned_text
-                        return cleaned_text
-                    else:
-                        self.logger.warning("Пустой ответ от модели")
-                        if attempt == config.MAX_RETRIES - 1:
-                            return "Извините, не удалось сгенерировать ответ. Попробуйте еще раз."
-                
-                elif response.status_code == 503:
-                    # Модель загружается
-                    wait_time = (attempt + 1) * 5  # Увеличиваем время ожидания
-                    self.logger.warning(f"Модель загружается, ждем {wait_time} секунд...")
-                    time.sleep(wait_time)
-                    continue
-                
-                elif response.status_code == 429:
-                    # Слишком много запросов
-                    self.logger.warning("Превышен лимит запросов, ждем...")
-                    time.sleep(10)
-                    continue
-                
-                else:
-                    self.logger.error(f"Ошибка API: {response.status_code} - {response.text}")
-                    if attempt == config.MAX_RETRIES - 1:
-                        return None
-                        
-            except requests.exceptions.Timeout:
-                self.logger.error(f"Таймаут при запросе к Hugging Face API (попытка {attempt + 1})")
-                if attempt == config.MAX_RETRIES - 1:
-                    return config.MESSAGES['api_timeout']
-                
-            except requests.exceptions.RequestException as e:
-                self.logger.error(f"Ошибка сети (попытка {attempt + 1}): {e}")
-                if attempt == config.MAX_RETRIES - 1:
-                    return None
-                    
-            except Exception as e:
-                self.logger.error(f"Неожиданная ошибка (попытка {attempt + 1}): {e}")
-                if attempt == config.MAX_RETRIES - 1:
-                    return None
-        
-        return None
-    
-    def _build_prompt(self, conversation_history: List[Dict[str, str]]) -> str:
-        """Строит промпт из истории диалога"""
-        if not conversation_history:
-            return "Ты полезный AI-ассистент. Начни разговор приветствием."
-        
-        # Берем только последние сообщения для промпта (учитываем ограничения токенов)
-        recent_history = conversation_history[-6:]  # Немного больше для лучшего контекста
-        
-        prompt_parts = ["Ты - полезный AI-ассистент для Telegram бота. Веди естественную беседу."]
-        
-        for msg in recent_history:
-            if msg['role'] == 'user':
-                prompt_parts.append(f"Пользователь: {msg['content']}")
-            elif msg['role'] == 'assistant':
-                prompt_parts.append(f"Ассистент: {msg['content']}")
-        
-        # Добавляем текущий запрос ассистента
-        prompt_parts.append("Ассистент:")
-        
-        return "\n".join(prompt_parts)
-    
-    def _extract_generated_text(self, response_data: Any) -> Optional[str]:
-        """Извлекает сгенерированный текст из ответа API"""
-        try:
-            # Обрабатываем разные форматы ответа Hugging Face API
-            if isinstance(response_data, list):
-                for item in response_data:
-                    if isinstance(item, dict):
-                        if 'generated_text' in item:
-                            text = item['generated_text']
-                            # Убираем повторяющийся промпт если есть
-                            if 'Ассистент:' in text:
-                                text = text.split('Ассистент:')[-1].strip()
-                            return text
-            
-            elif isinstance(response_data, dict):
-                if 'generated_text' in response_data:
-                    return response_data['generated_text']
-                elif 'text' in response_data:
-                    return response_data['text']
-            
-            self.logger.warning(f"Неизвестный формат ответа: {response_data}")
-            return None
-            
+                    json={"inputs": "Hello"},
+                    headers=self.headers,
+                    timeout=10
+                ) as r:
+                    return r.status in (200, 503)
+
         except Exception as e:
-            self.logger.error(f"Ошибка при извлечении текста: {e}")
-            return None
-    
-    def _clean_response(self, text: str) -> str:
-        """Очищает и форматирует ответ от модели"""
-        if not text:
-            return text
-        
-        # Убираем лишние пробелы
-        text = ' '.join(text.split())
-        
-        # Обрезаем слишком длинные ответы
-        if len(text) > 1000:
-            text = text[:1000] + "..."
-        
-        # Убедимся, что ответ заканчивается нормально
-        if text and text[-1] not in ['.', '!', '?', ':', ')', ']', '}']:
-            text += '.'
-        
-        return text.strip()
-    
-    def test_connection(self) -> bool:
-        """Проверяет соединение с Hugging Face API"""
-        try:
-            # Используем легкий запрос для проверки
-            test_payload = {
-                "inputs": "Тестовое сообщение",
-                "parameters": {"max_length": 10, "min_length": 1}
-            }
-            
-            response = self.session.post(
-                self.api_url,
-                json=test_payload,
-                timeout=10
-            )
-            
-            # 200 - OK, 503 - модель загружается (но API работает)
-            return response.status_code in [200, 503, 422]  # 422 - ошибка валидации, но соединение есть
-            
-        except Exception as e:
-            self.logger.error(f"Ошибка при тесте соединения: {e}")
+            self.logger.error(f"Ошибка HF соединения: {e}")
             return False
 
+    async def generate_response(self, user_message: str, conversation_history: list) -> str:
+        """Генерация ответа модели"""
+
+        prompt = self._build_prompt(conversation_history, user_message)
+        payload = {"inputs": prompt}
+
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.post(
+                    self.api_url,
+                    json=payload,
+                    headers=self.headers,
+                    timeout=30
+                ) as r:
+                    data = await r.json()
+
+                    # Ошибка HF
+                    if isinstance(data, dict) and "error" in data:
+                        return "⚠️ Ошибка модели: " + data["error"]
+
+                    # HF Router output
+                    if isinstance(data, dict) and "generated_text" in data:
+                        return data["generated_text"]
+
+                    # Classical HF list output
+                    if isinstance(data, list) and "generated_text" in data[0]:
+                        return data[0]["generated_text"]
+
+                    return "⚠️ Пустой ответ от модели."
+
+        except Exception as e:
+            self.logger.error(f"HF API error: {e}")
+            return "⚠️ Ошибка подключения к ИИ."
+
+    def _build_prompt(self, history: list, user_message: str) -> str:
+        prompt = ""
+
+        for msg in history:
+            prompt += f"{msg['role'].title()}: {msg['content']}\n"
+
+        prompt += f"User: {user_message}\nAI:"
+        return prompt
 
 class AIService:
     """Улучшенный сервис для работы с AI"""
